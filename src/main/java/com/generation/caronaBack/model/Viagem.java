@@ -1,6 +1,6 @@
 package com.generation.caronaBack.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -35,14 +36,15 @@ public class Viagem {
     @Size(min = 2, message = "O atributo destino deve conter no mínimo 2 caracteres")
     private String destino;
 	
-	@NotBlank(message = "O atributo data é obrigatório!")
+	@NotNull(message = "O atributo data é obrigatório!")
 	@FutureOrPresent(message = "A data não pode estar no passado")
-    private LocalDateTime data;
+    private LocalDate data;
 	
-	@NotBlank(message = "O atributo número de vagas é obrigatório!")
+	@NotNull (message = "O atributo número de vagas é obrigatório!")
 	private int vagas_disponiveis;
 	
-	@NotBlank(message = "O atributo valor é obrigatório!")
+	//@NotBlank(message = "O atributo valor é obrigatório!")
+	@NotNull
 	private Double valor_sugerido;
 
 	public Long getId() {
@@ -77,11 +79,11 @@ public class Viagem {
 		this.destino = destino;
 	}
 
-	public LocalDateTime getData() {
+	public LocalDate getData() {
 		return data;
 	}
 
-	public void setData(LocalDateTime data) {
+	public void setData(LocalDate data) {
 		this.data = data;
 	}
 

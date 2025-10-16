@@ -44,14 +44,14 @@ public class ViagemController {
 	}
 
 	@GetMapping("/origem/{origem}")
-	public ResponseEntity<List<Viagem>> getAllByOrigem(@PathVariable String titulo) {
-		return ResponseEntity.ok(viagemRepository.findAllByOrigemContainingIgnoreCase(titulo));
+	public ResponseEntity<List<Viagem>> getAllByOrigem(@PathVariable String origem) {
+		return ResponseEntity.ok(viagemRepository.findAllByOrigemContainingIgnoreCase(origem));
 		// Select*from td_postagens
 	}
 
 	@GetMapping("/destino/{destino}")
-	public ResponseEntity<List<Viagem>> getAllByDestino(@PathVariable String titulo) {
-		return ResponseEntity.ok(viagemRepository.findAllByDestinoContainingIgnoreCase(titulo));
+	public ResponseEntity<List<Viagem>> getAllByDestino(@PathVariable String destino) {
+		return ResponseEntity.ok(viagemRepository.findAllByDestinoContainingIgnoreCase(destino));
 		// Select*from td_postagens
 	}
 
