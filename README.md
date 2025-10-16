@@ -47,7 +47,7 @@ class Viagem {
   + get motorista() : String
   + get origem() : String
   + get destino() : String
-  + get data() : LocalDateTime
+  + get data() : Date
   + get vagas_disponiveis():int
   + get valor_sugerido(): Double
   + set id(id: Long) void
@@ -65,21 +65,25 @@ class Viagem {
 
 ## 4. Diagrama Entidade-Relacionamento (DER)
 
-Adicione a imagem do DER
-
-<div align="center">
-    <img src="imagem" title="source: imgur.com" />
-</div>
-
-
-
+```mermaid
+erDiagram
+    TB_VIAGENS {
+        BIGINT id PK
+        VARCHAR motorista
+        VARCHAR origem
+        VARCHAR destino
+        DATETIME data
+        INT vagas_disponiveis
+        DECIMAL valor_sugerido
+    }
+```
 ------
 
 ## 5. Tecnologias utilizadas
 
 | Item                           | Descrição         |
 | ------------------------------ | ----------------- |
-| **Servidor**                   |         ?         |
+| **Servidor**                   |      Tomcat       |
 | **Linguagem de programação**   |        Java       |
 | **Framework**                  |    Spring Boot    |
 | **Ambiente de Desenvolvimento**| Spring Tool Suite |
