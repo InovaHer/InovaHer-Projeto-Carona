@@ -31,11 +31,35 @@ Descreva brevemente a API que foi construída
 
 ## 3. Diagrama de Classes
 
-Adicione a imagem do Diagrama de Classes (se houver)
+```mermaid
 
-<div align="center">
-    <img src="mudar" title="source: imgur.com" width="50%"/>
-</div>
+
+classDiagram
+class Viagem {
+  - id: Long
+  - motorista: String
+  - origem: String
+  - destino: String
+  - data : Localdatetime
+  - vagas_disponiveis:int
+  - valor_sugerido: Double
+  + get id() : Long
+  + get motorista() : String
+  + get origem() : String
+  + get destino() : String
+  + get data() : LocalDateTime
+  + get vagas_disponiveis():int
+  + get valor_sugerido(): Double
+  + set id(id: Long) void
+  + set motorista(motorista: string) void
+  + set origem(origem: string) void
+  + set destino(destino: string) void
+  + set data(data: Localdate) void
+  + set vagas_disponiveis(vagas_disponiveis: int) void
+  + set valor_sugerido(valor_sugerido: Double) void
+}
+
+```
 
 ------
 
