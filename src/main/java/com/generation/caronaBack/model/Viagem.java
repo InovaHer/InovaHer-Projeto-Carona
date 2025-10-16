@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
@@ -18,7 +19,6 @@ public class Viagem {
 	@Id //Primary key (id)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)//auto_increment
 	private Long id;//Id Viagem
-	
 
 	@Column(length = 255)
     @NotBlank(message = "O atributo motorista é obrigatório!")
@@ -28,21 +28,22 @@ public class Viagem {
 	@Column(length = 255)
     @NotBlank(message = "O atributo origem é obrigatório!")
     @Size(min = 2, message = "O atributo origem deve conter no mínimo 2 caracteres")
-    String origem;
+    private String origem;
 	
 	@Column(length = 255)
     @NotBlank(message = "O atributo destino é obrigatório!")
     @Size(min = 2, message = "O atributo destino deve conter no mínimo 2 caracteres")
-    String destino;
+    private String destino;
 	
 	@NotBlank(message = "O atributo data é obrigatório!")
-    LocalDateTime data;
+	@FutureOrPresent(message = "A data não pode estar no passado")
+    private LocalDateTime data;
 	
 	@NotBlank(message = "O atributo número de vagas é obrigatório!")
-	int vagas_disponiveis;
+	private int vagas_disponiveis;
 	
 	@NotBlank(message = "O atributo valor é obrigatório!")
-	Double valor_sugerido;
+	private Double valor_sugerido;
 
 	public Long getId() {
 		return id;
@@ -100,8 +101,4 @@ public class Viagem {
 		this.valor_sugerido = valor_sugerido;
 	}
 	
-	
-	
-	
-
 }
